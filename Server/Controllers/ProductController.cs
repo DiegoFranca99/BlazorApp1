@@ -33,5 +33,19 @@ namespace BlazorApp1.Server.Controllers
             var result = await _productService.GetProductsByCategory(categoryUrl);
             return Ok(result);
         }
+
+
+        [HttpGet("search/{searchText}")]
+        public async Task<ActionResult<ServiceResponse<Product>>> SearchProducts(string searchText)
+        {
+            var result = await _productService.SearchProducts(searchText);
+            return Ok(result);
+        }
+        [HttpGet("searchsuggestions/{searchText}")]
+        public async Task<ActionResult<ServiceResponse<Product>>> GetProductsSearchSuggestions(string searchText)
+        {
+            var result = await _productService.GetProductsSearchSuggestions(searchText);
+            return Ok(result);
+        }
     }
 }
