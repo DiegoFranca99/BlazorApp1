@@ -1,20 +1,19 @@
 ﻿@inject NavigationManager NavigationManager
 @inject IProductService ProductService
 
-
 <div class="input-group">
-    <input  @bind-value="searchText"
-            @bind-value:event="oninput"
-            type="search"
-            list="products"
-            @onkeyup="HandleSearch"
-            class="form-control"
-            placeholder="Search.."
-            @ref="searchInput"/>
+    <input @bind-value="searchText"
+           @bind-value:event="oninput"
+           type="search"
+           list="products"
+           @onkeyup="HandleSearch"
+           class="form-control"
+           placeholder="Search..."
+           @ref="searchInput" />
     <datalist id="products">
         @foreach (var suggestion in suggestions)
         {
-                <option>@suggestion</option>
+            <option>@suggestion</option>
         }
     </datalist>
     <div class="input-group-append">
@@ -23,7 +22,6 @@
         </button>
     </div>
 </div>
-
 
 @code {
     private string searchText = string.Empty;
@@ -40,9 +38,8 @@
 
     public void SearchProducts()
     {
-        NavigationManager.NavigateTo($"search/{searchText}");
+        NavigationManager.NavigateTo($"search/{searchText}/1");
     }
-
 
     public async Task HandleSearch(KeyboardEventArgs args)
     {
@@ -56,4 +53,3 @@
         }
     }
 }
-
