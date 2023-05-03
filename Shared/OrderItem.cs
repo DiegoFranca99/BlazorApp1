@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace BlazorApp1.Shared
+{
+    public class OrderItem
+    {
+        public Order Order { get; set; }
+        public int OrderId { get; set; }
+        public Product Product { get; set; }
+        public int ProductId { get; set; }
+        public ProductType ProductType { get; set; }
+        public int ProductTypeId { get; set; }
+        public int Quantity { get; set; }
+        public int MyProperty { get; set; }
+        [Column(TypeName ="Decimal(18,2)")]
+        public decimal TotalPrice { get; set; }
+    }
+}
